@@ -236,7 +236,7 @@ function showFileFallback() {
 
 async function loadData() {
   try {
-    const resp = await fetch('../recursos/vendedoras.csv');
+    const resp = await fetch('datos.csv');
     if (!resp.ok) throw new Error('HTTP ' + resp.status);
     return parseCSV(await resp.text());
   } catch(e) { showFileFallback(); return null; }

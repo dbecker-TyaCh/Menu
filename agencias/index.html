@@ -80,14 +80,14 @@ footer{padding:12px 0;border-top:1px solid var(--bdr);color:var(--muted);font-si
   <div><div class='hdr-title'>Tablero de Agencias</div>
   <div class='hdr-sub'>Ingresos USD · No aéreo · Gerencia MAYO · 2024–2026</div></div>
   <div class='hdr-right'>
-    <div class='live' id='live'><div class='dot'></div><span>datos.csv</span></div>
+    <div class='live' id='live'><div class='dot'></div><span>../recursos/agencias.csv</span></div>
     <button class='btn' id='btnPNG' onclick='dlPNG()' disabled>📥 PNG</button>
   </div>
 </div></header>
-<div id='loading'><div class='spinner'></div><div class='loading-txt'>Cargando datos.csv...</div></div>
+<div id='loading'><div class='spinner'></div><div class='loading-txt'>Cargando ../recursos/agencias.csv...</div></div>
 <div id='errbox'><div class='err-inner'>
   <h3>No se pudo cargar el archivo</h3>
-  <p>Asegurate de que <code>datos.csv</code> esté en la misma carpeta que <code>index.html</code>.</p>
+  <p>Asegurate de que <code>datos.csv</code> esté en <code>/recursos/datos.csv</code>.</p>
   <button class='btn' onclick='location.reload()'>↻ Reintentar</button>
 </div></div>
 <div id='ui'>
@@ -169,7 +169,7 @@ function buildAgencies(text){
 }
 var AGENCIES=[],charts=[];
 function load(){
-  fetch('datos.csv').then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
+  fetch('../recursos/agencias.csv').then(function(r){if(!r.ok)throw new Error('HTTP '+r.status);return r.text();})
   .then(function(txt){
     var r=buildAgencies(txt);
     AGENCIES=r.agencies;
