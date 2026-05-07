@@ -657,7 +657,7 @@ async function init() {
   // 1) Intenta datos.csv primero (rápido, 3 seg max)
   try {
     sub.textContent = 'Buscando archivo local...';
-    const res = await fetchWithTimeout('./datos.csv', 3000, false);
+    const res = await fetchWithTimeout('../recursos/cotizaciones.csv', 3000, false);
     if (res.ok) {
       const text = await res.text();
       if (text && text.includes('Marca temporal')) {
